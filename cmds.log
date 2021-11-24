@@ -1,0 +1,1000 @@
+ 1003  awk -F '","' '{print $6}' training.1600000.processed.noemoticon.csv > top1000tweets.txt
+ 1004  head -n 5 top1000tweets.txt 
+ 1005  awk -F '","' '{print "$6}' training.1600000.processed.noemoticon.csv > top1000tweets.txt
+ 1006  awk -F '","' '"''{print $6}' training.1600000.processed.noemoticon.csv > top1000tweets.txt
+ 1007  awk -F '","' '"{print $6}' training.1600000.processed.noemoticon.csv > top1000tweets.txt
+ 1008  awk -F '","' "\"{print $6}" training.1600000.processed.noemoticon.csv > top1000tweets.txt
+ 1009  head top1000tweets.txt 
+ 1010  awk -F '","' '{print $6}' training.1600000.processed.noemoticon.csv > top1000tweets.txt
+ 1011  head top1000tweets.txt 
+ 1012  nano append_tweets.sh 
+ 1013  ls
+ 1014  wc -l top1000tweets.txt 
+ 1015  head -n 1000 training.1600000.processed.noemoticon.csv > top1000tweets.txt
+ 1016  wc -l top1000tweets.txt 
+ 1017  awk -F '","' '{print $6}' top1000tweets > top1000tweets.column6.txt
+ 1018  awk -F '","' '{print $6}' top1000tweets.txt > top1000tweets.column6.txt
+ 1019  wc -l top1000tweets.txt 
+ 1020  head -n 5 top1000tweets.txt
+ 1021  head -n 5 top1000tweets.column6.txt 
+ 1022  sed -i '/"//g' top1000tweets.column6.txt
+ 1023  sed -i '/\"//g' top1000tweets.column6.txt
+ 1024  sed -i '/'"'//g' top1000tweets.column6.txt
+ 1025  sed -i '/["]//g' top1000tweets.column6.txt
+ 1026  sed -i 's/\"//g' top1000tweets.column6.txt
+ 1027  head -n 5 top1000tweets.column6.txt 
+ 1028  nano append_tweets.sh 
+ 1029  for i in `ls REVIEWS/*.txt`; do ./append_tweets.sh $i top1000tweets.column6.txt ; done
+ 1030  ls
+ 1031  cd REVIEWS/
+ 1032  ls
+ 1033  cat R12EHXBC0GP2C2.txt
+ 1034  cd ..
+ 1035  nano append_tweets.sh 
+ 1036  for i in `ls REVIEWS/*.txt`; do ./append_tweets.sh $i top1000tweets.column6.txt ; done
+ 1037  nano append_tweets.sh 
+ 1038  for i in `ls REVIEWS/*.txt`; do ./append_tweets.sh $i top1000tweets.column6.txt ; done
+ 1039  nano append_tweets.sh 
+ 1040  name="a.txt"
+ 1041  cat $name
+ 1042  for i in `cat $name`; do echo "hi"; done
+ 1043  nano append_tweets.sh 
+ 1044  clear
+ 1045  cd REVIEWS/
+ 1046  ls
+ 1047  cat R12EHXBC0GP2C2.txt
+ 1048  cd ..
+ 1049  ls
+ 1050  cat top1000tweets.txt
+ 1051  clear
+ 1052  nano append_tweets.sh 
+ 1053  for i in `ls REVIEWS/*.txt`; do ./append_tweets.sh $i top1000tweets.txt ; done
+ 1054  nano append_tweets.sh 
+ 1055  cd REVIEWS/
+ 1056  ls
+ 1057  cat R12EHXBC0GP2C2.txt
+ 1058  clear
+ 1059  cd ..
+ 1060  for i in `ls REVIEWS/*.txt`; do ./append_tweets.sh $i top1000tweets.txt ; done
+ 1061  nano append_tweets.sh 
+ 1062  cd REVIEWS/
+ 1063  ls
+ 1064  head R12EHXBC0GP2C2.txt
+ 1065  cat R12EHXBC0GP2C2.txt
+ 1066  clear
+ 1067  cd ..
+ 1068  ls
+ 1069  for
+ 1070  nano append_tweets.sh 
+ 1071  cd REVIEWS/
+ 1072  nano
+ 1073  chmod +x sed_replacements.sh 
+ 1074  nano
+ 1075  cd ..
+ 1076  nano append_tweets.sh 
+ 1077  man parallel
+ 1078  nano append_tweets.sh 
+ 1079  ls
+ 1080  rp top1000*
+ 1081  rm top1000*
+ 1082  head -n 100 training.1600000.processed.noemoticon.csv > top100tweets.txt
+ 1083  awk -F '","' '{print $6}' top100tweets.txt > top100tweets.column6.txt
+ 1084  sed -i 's/\"//g' top1000tweets.column6.txt
+ 1085  sed -i 's/\"//g' top100tweets.column6.txt
+ 1086  for i in `ls REVIEWS/*.txt`; do echo "./append_tweets.sh $i top100tweets.column6.txt" >> commands.txt ; done
+ 1087  wc -l commands.txt 
+ 1088  head commands.txt 
+ 1089  parallel
+ 1090  apt install parallel
+ 1091  sudo apt install parallel
+ 1092  cat /etc/os-release
+ 1093  wget http://ftp.gnu.org/gnu/parallel/parallel-20120522.tar.bz2
+ 1094  ls
+ 1095  tar -xvjf parallel*
+ 1096  ls
+ 1097  cd parallel*
+ 1098  cd parallel-20120522/
+ 1099  less README
+ 1100  ./configure
+ 1101  make
+ 1102  sudo make install
+ 1103  module load parallel
+ 1104  cd ..
+ 1105  module load parallel
+ 1106  time parallel < commands.txt
+ 1107  ls
+ 1108  rm parallel*
+ 1109  rm -r parallel*
+ 1110  ls
+ 1111  rm temp*
+ 1112  ls
+ 1113  rm a.txt 
+ 1114  rm z.txt 
+ 1115  ls
+ 1116  clear
+ 1117  bunzip2 parallel-latest.tar.bz2
+ 1118  wget https://ftpmirror.gnu.org/parallel/parallel-latest.tar.bz2
+ 1119  ls
+ 1120  bunzip2 parallel-latest.tar.bz2
+ 1121  tar xvf parallel-latest.tar 
+ 1122  ls
+ 1123  ./parallel-20210822/src/parallel 
+ 1124  cd parallel-20211022/
+ 1125  ls
+ 1126  cd src/
+ 1127  ls
+ 1128  cd ~
+ 1129  time ./parallel-20210822/src/parallel < commands.txt
+ 1130  time ./parallel-20210822/src/parallel commands.txt
+ 1131  cd parallel-20211022/
+ 1132  cd src/
+ 1133  time ./parallel < ~/commands.txt
+ 1134  cd ~
+ 1135  nano append_tweets.sh 
+ 1136  rm commands.txt 
+ 1137  for i in `ls REVIEWS/*.txt`; do echo "./append_tweets.sh ~/$i ~/top100tweets.column6.txt" >> commands.txt ; done
+ 1138  head commands.txt 
+ 1139  cd REVIEWS/
+ 1140  ls
+ 1141  cat R12EHXBC0GP2C2.txt
+ 1142  cd ..
+ 1143  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $3}'); awk -F $'\t' /"$id"/ 'OFS="\t" {print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15}' top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1144  cd REVIEWS/
+ 1145  cat R12EHXBC0GP2C2.txt
+ 1146  ls
+ 1147  ls + wc -l
+ 1148  ls | wc -l
+ 1149  for i in `ls *.txt`; do awk -F $'\t' 'OFS="\t" {gsub("ing "," ",$14)}1' $i > temp.file ; mv temp.file $i ; done
+ 1150  for i in `ls *.txt`; do awk -F $'\t' 'OFS="\t" {gsub("ed ","e ",$14)}1' $i > temp.file ; mv temp.file $i ; done
+ 1151  for i in `ls *.txt`; do awk -F $'\t' 'OFS="\t" {gsub("s "," ",$14)}1' $i > temp.file ; mv temp.file $i ; done
+ 1152  cat R12EHXBC0GP2C2.txt
+ 1153  for i in `ls *.txt`; do ./sed_replacements.sh ; done
+ 1154  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1155  cat R12EHXBC0GP2C2.txt
+ 1156  nano sed_replacements.sh 
+ 1157  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1158  nano sed_replacements.sh 
+ 1159  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1160  nano sed_replacements.sh 
+ 1161  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1162  nano sed_replacements.sh 
+ 1163  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1164  nano sed_replacements.sh 
+ 1165  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1166  cat R12EHXBC0GP2C2.txt
+ 1167  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1168  nano sed_replacements.sh 
+ 1169  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1170  nano sed_replacements.sh 
+ 1171  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1172  cat R12EHXBC0GP2C2.txt
+ 1173  cd ..
+ 1174  ls
+ 1175  rm commands.txt 
+ 1176  cd REVIEWS/
+ 1177  for i in `ls REVIEWS/*.txt`; do echo "cd ~; ./append_tweets.sh $i top100tweets.column6.txt" >> commands.txt ; done
+ 1178  cd ..
+ 1179  for i in `ls REVIEWS/*.txt`; do echo "cd ~; ./append_tweets.sh $i top100tweets.column6.txt" >> commands.txt ; done
+ 1180  head commands.txt 
+ 1181  cd parallel-20211022/src/
+ 1182  ls
+ 1183  time ./parallel < ~/commands.txt
+ 1184  parallel --citation
+ 1185  ./parallel --citation
+ 1186  cd ~/REVIEWS/
+ 1187  ls
+ 1188  cat R12EHXBC0GP2C2.txt
+ 1189  cd parallel-20211022/src/
+ 1190  cd ~/parallel-20211022/src/
+ 1191  time ./parallel < ~/commands.txt
+ 1192  cd ~/REVIEWS/
+ 1193  ls
+ 1194  cat R12EHXBC0GP2C2.txt 
+ 1195  .~/append_tweets.sh
+ 1196  ./~/append_tweets.sh
+ 1197  ~/./append_tweets.sh
+ 1198  cd /bui
+ 1199  cd /
+ 1200  ls
+ 1201  cd home/
+ 1202  ls
+ 1203  cd bui
+ 1204  ls
+ 1205  rm commands.txt 
+ 1206  for i in `ls REVIEWS/*.txt`; do echo "./home/bui/append_tweets.sh $i top100tweets.column6.txt" >> commands.txt ; done
+ 1207  cd ~/parallel-20211022/src/
+ 1208  time ./parallel < ~/commands.txt
+ 1209  cd ~
+ 1210  rm commands.txt 
+ 1211  for i in `ls REVIEWS/*.txt`; do echo "sh /home/bui/append_tweets.sh $i top100tweets.column6.txt" >> commands.txt ; done
+ 1212  cd ~/parallel-20211022/src/
+ 1213  time ./parallel < ~/commands.txt
+ 1214  cd ~
+ 1215  nano a
+ 1216  nano append_tweets.sh 
+ 1217  cd ~/parallel-20211022/src/
+ 1218  cp parallel ~
+ 1219  cd ~
+ 1220  ls
+ 1221  rm commands.txt 
+ 1222  for i in `ls REVIEWS/*.txt`; do echo "./append_tweets.sh $i top100tweets.column6.txt" >> commands.txt ; done
+ 1223  time ./parallel < commands.txt
+ 1224  cd REVIEWS/
+ 1225  ls
+ 1226  cat R12EHXBC0GP2C2.txt
+ 1227  cd ..
+ 1228  for i in `ls REVIEWS/*.txt`; do ./append_tweets.sh $i top100tweets.column6.txt >> commands.txt ; done
+ 1229  cd REVIEWS/
+ 1230  ls
+ 1231  cat R12EHXBC0GP2C2.txt 
+ 1232  cd ..
+ 1233  nano append_tweets.sh 
+ 1234  ls
+ 1235  rm commands.txt 
+ 1236  for i in `ls REVIEWS/*.txt`; do echo "cd ~; ./append_tweets.sh ~/$i ~/top100tweets.column6.txt" >> commands.txt ; done
+ 1237  cd ~/parallel-20211022/src/
+ 1238  time ./parallel < ~/commands.txt
+ 1239  cd ~/REVIEWS/
+ 1240  ls
+ 1241  head sed2o9bLD 
+ 1242  ls | wc -l
+ 1243  rm sed2
+ 1244  rm sed2o9bLD 
+ 1245  rm sedLI6uYR 
+ 1246  cd ..
+ 1247  cd REVIEWS/
+ 1248  cat R12EHXBC0GP2C2.txt
+ 1249  cd ..
+ 1250  for i in `ls REVIEWS/*.txt`; do ./append_tweets.sh $i top100tweets.column6.txt >> commands.txt ; done
+ 1251  cd REVIEWS/
+ 1252  cat R12EHXBC0GP2C2.txt
+ 1253  cd ..
+ 1254  nano a
+ 1255  nano append_tweets.sh 
+ 1256  cd REVIEWS/
+ 1257  ls 
+ 1258  awk '{print $14}' R12EHXBC0GP2C2.txt | tr " " "\n" | sort | uniq -c
+ 1259  awk '{print $14}' R12EHXBC0GP2C2.txt | tr " " "\n" | sort 
+ 1260  awk '{print $14}' R12EHXBC0GP2C2.txt
+ 1261  cat R12EHXBC0GP2C2.txt
+ 1262  cd ..
+ 1263  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $3}'); awk -F $'\t' /"$id"/ 'OFS="\t" {print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15}' top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1264  cd REVIEWS/
+ 1265  cat R12EHXBC0GP2C2.txt
+ 1266  for i in `ls *.txt`; do awk -F $'\t' 'OFS="\t" {gsub("ing "," ",$14)}1' $i > temp.file ; mv temp.file $i ; done
+ 1267  for i in `ls *.txt`; do awk -F $'\t' 'OFS="\t" {gsub("ed ","e ",$14)}1' $i > temp.file ; mv temp.file $i ; done
+ 1268  for i in `ls *.txt`; do awk -F $'\t' 'OFS="\t" {gsub("s "," ",$14)}1' $i > temp.file ; mv temp.file $i ; done
+ 1269  cat R12EHXBC0GP2C2.txt
+ 1270  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1271  cat R12EHXBC0GP2C2.txt
+ 1272  nano sed_replacements.sh 
+ 1273  cd ..
+ 1274  nano
+ 1275  chmod +x test.sh
+ 1276  ls
+ 1277  head -n 1000 amazon_reviews_us_Books_v1_02.tsv > 1000reviews.txt
+ 1278  cat test.sh
+ 1279  cat test.sh > test.txt
+ 1280  time ./parallel test.txt
+ 1281  time sh parallel test.txt
+ 1282  time sh parallel 
+ 1283  time sh parallel < test.txt
+ 1284  cd ~/parallel-20211022/src/
+ 1285  time sh parallel < ~/test.txt
+ 1286  time ./parallel < ~/test.txt
+ 1287  cd ~
+ 1288  time sort -n -r -t $'\t' -k 9 1000reviews.txt
+ 1289  time sort -n -r -t $'\t' -k 9 1000reviews.txt > throwaway.txt
+ 1290  head throwaway.txt 
+ 1291  rm throwaway.txt 
+ 1292  cd ~/parallel-20211022/src/
+ 1293  wc -l parallel
+ 1294  head parallel
+ 1295  tail parallel
+ 1296  cd ~
+ 1297  man xargs
+ 1298  cd ~/parallel-20211022/src/
+ 1299  time ./parallel ~/test.txt 
+ 1300  cd ~
+ 1301  ls
+ 1302  rm parallel
+ 1303  rm parallel*
+ 1304  rm -r parallel*
+ 1305  ls
+ 1306  rm test.sh
+ 1307  rm test.txt
+ 1308  ls
+ 1309  (wget -O - pi.dk/3 || lynx -source pi.dk/3 || curl pi.dk/3/ ||        fetch -o - http://pi.dk/3 ) > install.sh
+ 1310  sha1sum install.sh | grep 883c667e01eed62f975ad28b6d50e22a
+ 1311  md5sum install.sh | grep cc21b4c943fd03e93ae1ae49e28573c0
+ 1312  sha512sum install.sh | grep da012ec113b49a54e705f86d51e784ebced224fdf
+ 1313  bash install.sh
+ 1314  ls
+ 1315  rm install.sh 
+ 1316  wget https://git.savannah.gnu.org/cgit/parallel.git/plain/src/parallel
+ 1317  chmod 755 parallel
+ 1318  ls
+ 1319  cp parallel sem
+ 1320  mv parallel sem dir-in-your-$PATH/bin/
+ 1321  mv parallel ~/bin/
+ 1322  ls
+ 1323  cd ~/share
+ 1324  cd /share
+ 1325  cd /
+ 1326  ls
+ 1327  cd bin
+ 1328  ls
+ 1329  cd ~
+ 1330  ls
+ 1331  cp parallel /bin
+ 1332  mkdir bin
+ 1333  mkdir share
+ 1334  cp parallel /share
+ 1335  cp parallel share
+ 1336  mv parallel bin
+ 1337  cp sem share
+ 1338  mv sem bin
+ 1339  nano
+ 1340  time parallel < a.txt 
+ 1341  export PATH="$HOME/bin:$PATH"
+ 1342  time parallel < a.txt 
+ 1343  nano a.txt 
+ 1344  time parallel < a.txt 
+ 1345  ls
+ 1346  rm TEST1
+ 1347  rmdir TEST1
+ 1348  rmdir TEST2
+ 1349  head -n 1000 amazon_reviews_us_Books_v1_02.tsv > 1000reviews.txt
+ 1350  clear
+ 1351  ls
+ 1352  rm =
+ 1353  rm 1000reviews.txt 
+ 1354  ls
+ 1355  rm a.txt 
+ 1356  ls
+ 1357  rm top*
+ 1358  rm commands.txt 
+ 1359  head -n 1000 amazon_reviews_us_Books_v1_02.tsv > first1000reviews.txt
+ 1360  ls
+ 1361  sort -n -r -t $'\t' -k 9 first1000reviews.txt | head -n 100 > top100reviews.txt
+ 1362  head top100reviews.txt 
+ 1363  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $3}'); awk -F $'\t' /"$id"/ {print $14}' top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1364  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $3}'); awk -F $'\t' '/"$id"/ {print $14}' top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1365  cd REVIEWS/
+ 1366  ls
+ 1367  cat R12EHXBC0GP2C2.txt
+ 1368  cd ..
+ 1369  awk -F $'\t' "R12EHXBC0GP2C2" '{print $14}' top100reviews.txt 
+ 1370  awk -F $'\t' /R12EHXBC0GP2C2/ '{print $14}' top100reviews.txt 
+ 1371  awk -F $'\t' '/R12EHXBC0GP2C2/ {print $14}' top100reviews.txt 
+ 1372  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print cd $3}'); awk -F $'\t' '/"$id"/ {print $14}' top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1373  cd REVIEWS/
+ 1374  ls
+ 1375  cat R12EHXBC0GP2C2.txt 
+ 1376  cd ..
+ 1377  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print cd $3}'); awk -F $'\t' "/$id/ {print $14}" top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1378  cd REVIEWS/
+ 1379  cat R12EHXBC0GP2C2.txt 
+ 1380  cd ..
+ 1381  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print cd $3}'); echo $id; done
+ 1382  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $3}'); awk -F $'\t' /"$id"/ '{print $14}' top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1383  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $3}'); awk -F $'\t' '/"$id"/ {print $14}' top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1384  cd REVIEWS/
+ 1385  ls
+ 1386  cat R12EHXBC0GP2C2.txt
+ 1387  cd ..
+ 1388  for i in {1..100}; do id=$(awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $3}'); awk -F $'\t' /"$id"/ 'OFS="\t" {print $14}' top100reviews.txt > "REVIEWS/$id.txt"; done
+ 1389  ls
+ 1390  wc -l top100reviews.txt 
+ 1391  cd REVIEWS/
+ 1392  ls
+ 1393  for i in `ls *.txt`; do cat $i; done
+ 1394  ls
+ 1395  cat R12EHXBC0GP2C2.txt 
+ 1396  awk -F $'\t' '{print $3}' R12EHXBC0GP2C2.txt
+ 1397  cd ..
+ 1398  id=R12EHXBC0GP2C2
+ 1399  echo $id
+ 1400  awk -F $'\t' /$id/ '{print $14}' top100reviews.txt
+ 1401  awk -F $'\t' /"$id"/ '{print $14}' top100reviews.txt
+ 1402  awk -F $'\t' '{print $14}' top100reviews.txt
+ 1403  awk -F $'\t' /$id/ '/$id/ {print $14}' top100reviews.txt
+ 1404  awk -F "\t" '{print $14}' top100reviews.txt
+ 1405  awk -F "\t" /$id/ '{print $14}' top100reviews.txt
+ 1406  awk -F "\t" "/$id/" '{print $14}' top100reviews.txt
+ 1407  awk "NR==1" top100reviews.txt | awk -F $'\t' '{print $14}'
+ 1408  head -n 1 top100reviews.txt 
+ 1409  awk "NR==1" top100reviews.txt | awk -F $'\t' '{print $14 > $3.txt}'
+ 1410  ls
+ 1411  awk "NR==1" top100reviews.txt | awk -F $'\t' '{print $14 > $3".txt"}'
+ 1412  ls
+ 1413  cat R38RXR8USISV94
+ 1414  rm R38RXR8USISV94*
+ 1415  ls
+ 1416  for i in {1..100}; do awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $14 > "REVIEWS/"$3".txt"}'; done
+ 1417  cd REVIEWS/
+ 1418  ls
+ 1419  cat R12EHXBC0GP2C2.txt
+ 1420  sed -i 's/s[.,?;:!]* / /g'  R12EHXBC0GP2C2.txt
+ 1421  cat R12EHXBC0GP2C2.txt
+ 1422  nano sed_replacements.sh 
+ 1423  for i in `ls *.txt`; do sed -i 's/ing[.,?;:!]* / /g' $i; sed -i 's/ed[.,?;:!]* /e /g' $i; sed -i 's/s[.,?;:!]* / /g' $i; done
+ 1424  cat R12EHXBC0GP2C2.txt
+ 1425  for i in `ls *.txt`; do ./sed_replacements.sh $i ; done
+ 1426  cat R12EHXBC0GP2C2.txt
+ 1427  cd ..
+ 1428  head -n 100 training.1600000.processed.noemoticon.csv > top100tweets.txt
+ 1429  sed -i 's/\"//g' top100tweets.column6.txt
+ 1430  mkdir TWEETS
+ 1431  head -n 1 top100tweets.column6.txt
+ 1432  awk "NR==1" top100tweets.column6.txt
+ 1433  awk "NR==1" top100tweets.column6.txt > a.txt
+ 1434  cat a.txt 
+ 1435  rm a.txt 
+ 1436  for i in {1..100}; do awk "NR==$i" top100tweets.column6.txt > "TWEETS/tweet$i.txt" ; done
+ 1437  cd TWEETS/
+ 1438  ls
+ 1439  cat tweet1.txt 
+ 1440  cd ..
+ 1441  cd REVIEWS/
+ 1442  ls
+ 1443  mv sed_replacements.sh ~
+ 1444  ls
+ 1445  cd ..
+ 1446  cd REVIEWS/
+ 1447  for i in `ls *.txt`; do ../sed_replacements.sh $i ; done
+ 1448  nano
+ 1449  chmod +x lemmatization.sh 
+ 1450  mv lemmatization.sh ~
+ 1451  cd ..
+ 1452  ls
+ 1453  nano append_tweets.sh 
+ 1454  ./append_tweets.sh REVIEWS/R12EHXBC0GP2C2.txt TWEETS/tweet1.txt
+ 1455  nano append_tweets.sh 
+ 1456  cd REVIEWS/
+ 1457  cp R12EHXBC0GP2C2.txt ~
+ 1458  cd ~/TWEETS/
+ 1459  cp tweet1.txt ~
+ 1460  cd ~
+ 1461  ls
+ 1462  cat tweet1.txt 
+ 1463  ./append_tweets.sh R12EHXBC0GP2C2.txt tweet1.txt 
+ 1464  nano append_tweets.sh 
+ 1465  ./append_tweets.sh R12EHXBC0GP2C2.txt tweet1.txt 
+ 1466  ./append_tweets.sh R12EHXBC0GP2C2.txt
+ 1467  ./append_tweets.sh
+ 1468  nano append_tweets.sh 
+ 1469  ./append_tweets.sh R12EHXBC0GP2C2.txt tweet1.txt 
+ 1470  tr --help
+ 1471  ./append_tweets.sh "R12EHXBC0GP2C2.txt" "tweet1.txt" 
+ 1472  nano append_tweets.sh 
+ 1473  ./append_tweets.sh R12EHXBC0GP2C2.txt tweet1.txt 
+ 1474  nano append_tweets.sh 
+ 1475  comm -12 <(tr " " "\n" R12EHXBC0GP2C2.txt | sort ) <(tr " " "\n" tweet1.txt | sort ) | sort | uniq -c | wc -l
+ 1476  tr " " "\n" R12EHXBC0GP2C2.txt
+ 1477  nano a
+ 1478  nano append_tweets.sh 
+ 1479  comm -12 <(tr " " "\n" R12EHXBC0GP2C2.txt | sort ) <(tr " " "\n" tweet1.txt | sort ) | sort | uniq -c | wc -l
+ 1480  tr " " "\n" < R12EHXBC0GP2C2.txt
+ 1481  tr " " "\n" < R12EHXBC0GP2C2.txt | sed 's/ //g'
+ 1482  tr " " "\n" < R12EHXBC0GP2C2.txt | sed 's/$^//g'
+ 1483  tr " " "\n" < R12EHXBC0GP2C2.txt | sed 's/$ ^//g'
+ 1484  tr " " "\n" < R12EHXBC0GP2C2.txt | sed 's/[ ]*//g'
+ 1485  ./append_tweets.sh R12EHXBC0GP2C2.txt tweet1.txt 
+ 1486  clear
+ 1487  cd TWEETS/
+ 1488  ls
+ 1489  cd ..
+ 1490  for i in `ls REVIEWS/*.txt`; do for j in `ls TWEETS/*.txt`; do echo "./append_tweets.sh $i $j" >> commands.txt ; done; done
+ 1491  wc -l commands.txt 
+ 1492  head commands.txt 
+ 1493  tmux ls
+ 1494  tmux new-session -s foo
+ 1495  cd REVIEWS/
+ 1496  ls
+ 1497  cat R12EHXBC0GP2C2.txt 
+ 1498  ls
+ 1499  cd ..
+ 1500  nano
+ 1501  nano z.txt 
+ 1502  wc -l < z.txt 
+ 1503  awk -F $'\t' '$2==2 {print $2} z.
+ 1504  awk -F $'\t' '$2==2 {print $2}' z.txt | wc -l 
+ 1505  cat z.txt 
+ 1506  awk -F $'\t' '$1==2 {print $2}' z.txt | wc -l 
+ 1507  count=0; while [ count -lt `wc -l < z.txt` ]; do echo $count; awk ""-F $'\t' '$1 == 2 {print $2} {((count++))}' z.txt; done
+ 1508  touch b.txt
+ 1509  wc -l b.txt 
+ 1510  while [ `wc -l < b.txt` < 100 ]; do awk -F $'\t' '$1==2 {print $2 > b.txt}'; done
+ 1511  while [ `wc -l < b.txt` < 2 ]; do awk -F $'\t' '$1==2 {print $2 > b.txt}'; done
+ 1512  if [ `wc -l < b.txt` -lt 100 ]; then echo "here"; else "bye"; fi
+ 1513  wc -l b.txt 
+ 1514  while [ `wc -l < b.txt` -lt 2 ]; do awk -F $'\t' '$1==2 {print $2 > b.txt}'; done
+ 1515  while [ `wc -l < b.txt` -lt 2 ]; do awk -F $'\t' '$1==2 {print $2 > "b.txt"}'; done
+ 1516  wc -l b.txt 
+ 1517  while [ `wc -l < b.txt` -lt 2 ]; do awk -F $'\t' '$1==2 {print $2 >> "b.txt"}'; done
+ 1518  while [ `wc -l < b.txt` -lt 2 ]; do awk -F $'\t' '$1==2 {print $2 >> "b.txt"}' z.txt; done
+ 1519  wc -l b.txt 
+ 1520  cat b.txt 
+ 1521  wc -l < ls
+ 1522  ls | wc -l
+ 1523  tmux attach -t foo
+ 1524  cd REVIEWS/
+ 1525  ls
+ 1526  wc -l RXFLVGTDEZNAA.txt
+ 1527  wc -l  R39RSXXM7RRJ76.txt 
+ 1528  wc -l R12EHXBC0GP2C2.txt
+ 1529  wc -l R1NHS4SDMPYF7T.txt
+ 1530  wc 
+ 1531  wc -l R14F73WG25M4RC.txt
+ 1532  wc -l R16OSGJQ7I7QN8.txt
+ 1533  wc -l R299KYRKCKSUR5.txt 
+ 1534  wc -l R22G14MRW8D4JT.txt
+ 1535  wc -l R1OVM6HX7FTQD0.txt
+ 1536  tmux attach -t foo
+ 1537  wc -l R14F73WG25M4RC.txt
+ 1538  tmux attach -t foo
+ 1539  ls
+ 1540  cd ..
+ 1541  ls
+ 1542  cd TWEETS/
+ 1543  ls
+ 1544  mkdir REVIEWS
+ 1545  head -n 1000 amazon_reviews_us_Books_v1_02.tsv > 1000reviews.txt
+ 1546  sort -n -r -t $'\t' -k 9 1000reviews.txt | head -n 100 > top100reviews.txt
+ 1547  for i in {1..100}; do awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $14 > "REVIEWS/"$3".txt"}'; done
+ 1548  cd REVIEWS/
+ 1549  ls
+ 1550  ls | wc -l
+ 1551  cd ..
+ 1552  nano
+ 1553  cd REVIEWS/
+ 1554  cat R12EHXBC0GP2C2.txt 
+ 1555  for i in `ls *.txt`; do ../lemmatization.sh $i ; done
+ 1556  cd ..
+ 1557  chmod +x lemmatization.sh 
+ 1558  cd REVIEWS/
+ 1559  for i in `ls *.txt`; do ../lemmatization.sh $i ; done
+ 1560  cat R12EHXBC0GP2C2.txt 
+ 1561  cd ..
+ 1562  nano
+ 1563  chmod +x sed_replacements.sh 
+ 1564  cd REVIEWS/
+ 1565  for i in `ls *.txt`; do ../sed_replacements.sh $i ; done
+ 1566  cat R12EHXBC0GP2C2.txt 
+ 1567  for i in `ls *.txt`; do ../lemmatization.sh $i ; done
+ 1568  cat R12EHXBC0GP2C2.txt 
+ 1569  cd ..
+ 1570  head -n 25 training.1600000.processed.noemoticon.csv > top25tweets.txt
+ 1571  awk -F '","' '{print $6}' top25tweets.txt > top25tweets.column6.txt
+ 1572  sed -i 's/\"//g' top25tweets.column6.txt
+ 1573  mkdir TWEETS
+ 1574  for i in {1..25}; do awk "NR==$i" top25tweets.column6.txt > "TWEETS/tweet$i.txt" ; done
+ 1575  cd TWEETS/
+ 1576  ls 
+ 1577  ls | wc -l
+ 1578  cd ..
+ 1579  for i in `ls REVIEWS/*.txt`; do for j in `ls TWEETS/*.txt`; do echo "./append_tweets.sh $i $j" >> commands.txt ; done; done
+ 1580  head commands.txt 
+ 1581  ls
+ 1582  nano
+ 1583  chmod +x append_tweets.sh
+ 1584  ls
+ 1585  time parallel < commands.txt
+ 1586  head similar_tweets.txt 
+ 1587  ./lemmatization.sh similar_tweets.txt
+ 1588  ./sed_replacements.sh similar_tweets.txt
+ 1589  head similar_tweets.txt 
+ 1590  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1591  ./sed_replacements.sh similar_tweets.txt
+ 1592  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1593  nano sed_replacements.sh 
+ 1594  ./sed_replacements.sh similar_tweets.txt
+ 1595  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1596  nano sed_replacements.sh 
+ 1597  ./sed_replacements.sh similar_tweets.txt
+ 1598  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1599  nano sed_replacements.sh 
+ 1600  ./sed_replacements.sh similar_tweets.txt
+ 1601  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1602  nano sed_replacements.sh 
+ 1603  ./sed_replacements.sh similar_tweets.txt
+ 1604  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1605  nano sed_replacements.sh 
+ 1606  ./sed_replacements.sh similar_tweets.txt
+ 1607  nano sed_replacements.sh 
+ 1608  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1609  mkdir REVIEWS_UNHELPFUL
+ 1610  while [ `ls REVIEWS_UNHELPFUL/ | wc -l` -lt 100 ]; do awk -F $'\t' '$1==2 {print $14 >> "REVIEWS_UNHELPFUL/"$3".txt"}' 1000reviews.txt; done
+ 1611  cd REVIEWS_UNHELPFUL/
+ 1612  ls
+ 1613  cd ..
+ 1614  head -n 1 1000reviews.txt 
+ 1615  while [ `ls REVIEWS_UNHELPFUL/ | wc -l` -lt 100 ]; do awk -F $'\t' '$9==0 {print $14 >> "REVIEWS_UNHELPFUL/"$3".txt"}' 1000reviews.txt; done
+ 1616  cd REVIEWS_UNHELPFUL/
+ 1617  ls
+ 1618  ls | wc -l 
+ 1619  rm R1[0-9]*.txt
+ 1620  ls
+ 1621  ls | wc -l
+ 1622  cd ..
+ 1623  mkdir REVIEWS_UNHELPFUL
+ 1624  awk -F $'\t' '$9==0 {print $3,$14}{OFS="\t"}' 1000reviews.txt | head -n 100 > 100badreviews.txt
+ 1625  for i in {1..100}; do awk "NR==$i" 100badreviews.txt | awk -F $'\t' '{print $2 > "REVIEWS_UNHELPFUL/"$1".txt"}'; done
+ 1626  cd REVIEWS_UNHELPFUL/
+ 1627  ls | wc -l
+ 1628  cat R1AT0CFYFP98M1.txt
+ 1629  for i in `ls *.txt`; do ../lemmatization.sh $i ; done
+ 1630  cat R1AT0CFYFP98M1.txt
+ 1631  for i in `ls *.txt`; do ../sed_replacements.sh $i ; done
+ 1632  cat R1AT0CFYFP98M1.txt
+ 1633  cd ..
+ 1634  rm similar_tweets.txt 
+ 1635  for i in `ls REVIEWS_UNHELPFUL/*.txt`; do for j in `ls TWEETS/*.txt`; do echo "./append_tweets.sh $i $j" >> commands.txt ; done; done
+ 1636  head commands.txt 
+ 1637  rm commands.txt 
+ 1638  for i in `ls REVIEWS_UNHELPFUL/*.txt`; do for j in `ls TWEETS/*.txt`; do echo "./append_tweets.sh $i $j" >> commands.txt ; done; done
+ 1639  wc -l commands.txt 
+ 1640  head commands.txt 
+ 1641  time parallel < commands.txt
+ 1642  cd REVIEWS_UNHELPFUL/
+ 1643  ls
+ 1644  cat R121VUBD3RIDXO.txt 
+ 1645  cd ..
+ 1646  ./lemmatization.sh similar_tweets.txt
+ 1647  ./sed_replacements.sh similar_tweets.txt
+ 1648  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1649  ./sed_replacements.sh similar_tweets.txt
+ 1650  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1651  ls
+ 1652  mkdir REVIEWS
+ 1653  head -n 1000 amazon_reviews_us_Books_v1_02.tsv > 1000reviews.txt
+ 1654  sort -n -r -t $'\t' -k 9 1000reviews.txt | head -n 100 > top100reviews.txt
+ 1655  head -n 1 top100reviews.txt 
+ 1656  for i in {1..100}; do awk "NR==$i" top100reviews.txt | awk -F $'\t' '{print $14 > "REVIEWS/"$3".txt"}'; done
+ 1657  cd REVIEWS/
+ 1658  ls | wc -l
+ 1659  ls
+ 1660  cat R12EHXBC0GP2C2.txt
+ 1661  cd ..
+ 1662  nano
+ 1663  chmod +x lemmatization.sh
+ 1664  cd REVIEWS/
+ 1665  for i in `ls *.txt`; do ../lemmatization.sh $i ; done
+ 1666  cat R12EHXBC0GP2C2.txt
+ 1667  cd ..
+ 1668  nano
+ 1669  chmod +x sed_replacements.sh
+ 1670  cd REVIEWS/
+ 1671  for i in `ls *.txt`; do ../sed_replacements.sh $i ; done
+ 1672  cat R12EHXBC0GP2C2.txt
+ 1673  for i in `ls *.txt`; do ../lemmatization.sh $i ; done
+ 1674  cat R12EHXBC0GP2C2.txt
+ 1675  cd ..
+ 1676  nano
+ 1677  head -n 100 training.1600000.processed.noemoticon.csv > top100tweets.txt
+ 1678  awk -F '","' '{print $6}' top100tweets.txt > top100tweets.column6.txt
+ 1679  wc -l top100tweets.column6.txt 
+ 1680  head top100tweets.column6.txt
+ 1681  sed -i 's/\"//g' top100tweets.column6.txt
+ 1682  head top100tweets.column6.txt
+ 1683  rm sed_replacements.sh 
+ 1684  nano
+ 1685  chmod +x sed_replacements.sh
+ 1686  cd REVIEWS
+ 1687  for i in `ls *.txt`; do ../sed_replacements.sh $i ; done
+ 1688  cd ..
+ 1689  ls
+ 1690  nano
+ 1691  mkdir TWEETS
+ 1692  for i in {1..100}; do awk "NR==$i" top100tweets.column6.txt > "TWEETS/tweet$i.txt" ; done
+ 1693  cd TWEETS
+ 1694  ls | wc -l
+ 1695  ls
+ 1696  cat tweet1.txt 
+ 1697  for i in `ls *.txt`; do ../lemmatization.sh $i ; done
+ 1698  for i in `ls *.txt`; do ../sed_replacements.sh $i ; done
+ 1699  cat tweet1.txt 
+ 1700  for i in `ls *.txt`; do ../sed_replacements.sh $i ; done
+ 1701  cat tweet1.txt 
+ 1702  cd ..
+ 1703  ls
+ 1704  nano
+ 1705  chmod +x append_tweets.sh
+ 1706  for i in `ls REVIEWS/*.txt`; do for j in `ls TWEETS/*.txt`; do echo "./append_tweets.sh $i $j" >> commands.txt ; done; done
+ 1707  time parallel < commands.txt
+ 1708  wc -l commands.txt 
+ 1709  ./lemmatization.sh similar_tweets.txt
+ 1710  ./sed_replacements.sh similar_tweets.txt
+ 1711  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1712  nano sed_replacements.sh 
+ 1713  ./sed_replacements.sh similar_tweets.txt
+ 1714  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1715  nano sed_replacements.sh 
+ 1716  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1717  ./sed_replacements.sh similar_tweets.txt
+ 1718  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1719  mkdir REVIEWS_UNHELPFUL
+ 1720  awk -F $'\t' '$9==0 {print $3,$14}{OFS="\t"}' 1000reviews.txt | head -n 100 > 100badreviews.txt
+ 1721  for i in {1..100}; do awk "NR==$i" 100badreviews.txt | awk -F $'\t' '{print $2 > "REVIEWS_UNHELPFUL/"$1".txt"}'; done
+ 1722  cd REVIEWS_UNHELPFUL/
+ 1723  ls | wc -l
+ 1724  ls
+ 1725  cat R121VUBD3RIDXO.txt
+ 1726  for i in `ls *.txt`; do ../lemmatization.sh $i ; done
+ 1727  cat R121VUBD3RIDXO.txt
+ 1728  for i in `ls *.txt`; do ../sed_replacements.sh $i ; done
+ 1729  cat R121VUBD3RIDXO.txt
+ 1730  cd ..
+ 1731  ls
+ 1732  rm similar_tweets.txt
+ 1733  rm commands.txt
+ 1734  ls
+ 1735  for i in `ls REVIEWS_UNHELPFUL/*.txt`; do for j in `ls TWEETS/*.txt`; do echo "./append_tweets.sh $i $j" >> commands.txt ; done; done
+ 1736  wc -l commands.txt 
+ 1737  head commands.txt 
+ 1738  time parallel < commands.txt
+ 1739  ./lemmatization.sh similar_tweets.txt
+ 1740  ./sed_replacements.sh similar_tweets.txt
+ 1741  tr " " "\n" < similar_tweets.txt | sort | uniq -c | sort -nr -k 1 | head -n 15
+ 1742  script a4.txt
+ 1743  clear
+ 1744  ls
+ 1745  rm -r REVIEWS*
+ 1746  ls
+ 1747  rm -r TWEETS/
+ 1748  ls
+ 1749  rm commands.txt 
+ 1750  rm similar_tweets.txt 
+ 1751  rm top*
+ 1752  ls
+ 1753  rm *.sh
+ 1754  ls
+ 1755  clear
+ 1756  script assignment.txt
+ 1757  rm assignment.txt 
+ 1758  rm 100*
+ 1759  ls
+ 1760  clear
+ 1761  script assignment.txt
+ 1762  cd ..
+ 1763  script second.txt
+ 1764  tmux attach -t foo
+ 1765  ls
+ 1766  cd REVIEWS/
+ 1767  ls
+ 1768  cd ..
+ 1769  nano a4.txt 
+ 1770  clear
+ 1771  ls
+ 1772  rm -r REVIEWS/
+ 1773  rm -r TWEETS/
+ 1774  rm a4.txt 
+ 1775  rm *.sh
+ 1776  ls
+ 1777  rm commands.txt 
+ 1778  head similar_tweets.txt 
+ 1779  rm similar_tweets.txt 
+ 1780  rm top*
+ 1781  ls
+ 1782  rm 1000reviews.txt 
+ 1783  ls
+ 1784  tmux new-session -s a4
+ 1785  cd REVIEWS/
+ 1786  ls
+ 1787  wc -l R12EHXBC0GP2C2.txt 
+ 1788  tmux new-session -s foo
+ 1789  cd ..
+ 1790  ls
+ 1791  wc -l similar_tweets.txt 
+ 1792  tmux attach -t a4
+ 1793  awk -F $'\t' '$9==0 {print $14}' 1000reviews.txt 
+ 1794  awk -F $'\t' '$9==0 {print}' 1000reviews.txt 
+ 1795  awk -F $'\t' '$9==0 {print $3"\t"$14}' 1000reviews.txt
+ 1796  awk -F $'\t' 'OFS="\t" $9==0 {print $3,$14}' 1000reviews.txt
+ 1797  awk -F $'\t' '$9==0 {print $3,$14}{OFS="\t"}' 1000reviews.txt
+ 1798  awk -F $'\t' '$9==0 {print $3,$14}{OFS="\t"}' 1000reviews.txt | head -n 100 > 100badreviews.txt
+ 1799  nano 100badreviews.txt 
+ 1800  wc -l 100badreviews.txt 
+ 1801  cd REVIEWS_UNHELPFUL/
+ 1802  ls
+ 1803  rm *
+ 1804  cd ..
+ 1805  for i in {1..100}; do awk "NR==$i" 100badreviews.txt | awk -F $'\t' '{print $14 > "REVIEWS_UNHELPFUL/"$3".txt"}'; done
+ 1806  cd REVIEWS_UNHELPFUL/
+ 1807  ls
+ 1808  cd ..
+ 1809  for i in {1..100}; do awk "NR==$i" 100badreviews.txt | awk -F $'\t' '{print $2 > "REVIEWS_UNHELPFUL/"$1".txt"}'; done
+ 1810  cd REVIEWS_UNHELPFUL/
+ 1811  ls
+ 1812  ls | wc -l
+ 1813  cd ..
+ 1814  ls
+ 1815  rm -r REVIEWS_UNHELPFUL/
+ 1816  tmux attach -t a4
+ 1817  nano a4.txt 
+ 1818  tmux attach -t a4
+ 1819  tmux ls
+ 1820  tmux attach -t foo
+ 1821  rm second.txt 
+ 1822  ls
+ 1823  nano assignment.txt 
+ 1824  head assignment.txt 
+ 1825  head -n 20 assignment.txt 
+ 1826  nano assignment.txt 
+ 1827  perl -pe 's/\x1b\[[0-9;]*[mG]//g' assignment.txt > assignment.txt.clean
+ 1828  tr -cd '\11\12\15\40-\176' < assignment.txt.clean > assignment.txt.clean2
+ 1829  sed -i "s/^M//g" assignment.txt.clean2
+ 1830  nano assignment.txt.clean2
+ 1831  ls
+ 1832  rm a4.txt 
+ 1833  mv assignment.txt.clean2 a4.txt
+ 1834  ls
+ 1835  tail a4.txt 
+ 1836  cd assignments/
+ 1837  ls
+ 1838  mkdir a4
+ 1839  cd ..
+ 1840  cd ~
+ 1841  mv top* assignment/a4
+ 1842  mv top* assignments/a4
+ 1843  ls
+ 1844  mv *.sh assignments/a4
+ 1845  ls
+ 1846  mv train* assignments/a4
+ 1847  ls
+ 1848  mv *.txt assignments/a4
+ 1849  ls
+ 1850  mv *clean assignments/a4
+ 1851  ls
+ 1852  mv testdata.manual.2009.06.14.csv assignments/a4
+ 1853  mv REVIEWS* assignments/a4
+ 1854  ls
+ 1855  mv TWEETS/ assignments/a4
+ 1856  ls
+ 1857  cd assignments/a4
+ 1858  ls
+ 1859  git init
+ 1860  git add a4.txt
+ 1861  git status
+ 1862  git commit -m "Assignment 4, CS 185C"
+ 1863  git remote add origin https://github.com/tkbui/a4.git
+ 1864  git status
+ 1865  git push -u origin master
+ 1866  cd ~
+ 1867  ls
+ 1868  exit
+ 1869  ls
+ 1870  nano
+ 1871  chmod +x randomsample.sh 
+ 1872  chmod +x randomsample.sh 1
+ 1873  hello=1
+ 1874  chmod +x randomsample.sh hello
+ 1875  chmod +x randomsample.sh $hello
+ 1876  hello="1"
+ 1877  chmod +x randomsample.sh $hello
+ 1878  nano randomsample.sh 
+ 1879  ./randomsample.sh $hello
+ 1880  nano randomsample.sh 
+ 1881  ./randomsample.sh $hello
+ 1882  nano randomsample.sh 
+ 1883  head -n 100 amazon_reviews_us_Books_v1_02.tsv > subset.tsv
+ 1884  ls
+ 1885  ./randomsample.sh 3 subset.tsv
+ 1886  nano randomsample.sh 
+ 1887  ./randomsample.sh 3 subset.tsv
+ 1888  nano randomsample.sh 
+ 1889  ./randomsample.sh 3 subset.tsv
+ 1890  nano randomsample.sh 
+ 1891  ./randomsample.sh 3 subset.tsv
+ 1892  nano randomsample.sh 
+ 1893  `3/100*100`
+ 1894  # *100
+ 1895  3 * 100
+ 1896  3*100
+ 1897  3*100 | bc
+ 1898  3+100 | bc
+ 1899  ( 3+100 | bc )
+ 1900  $(3 + 1 | bc )
+ 1901  $( 3 + 1 | bc )
+ 1902  $( 3+1 | bc )
+ 1903  echo "3/100*200" | bc
+ 1904  echo "3/*200" | bc
+ 1905  echo "3/200" | bc
+ 1906  echo "3*200" | bc
+ 1907  echo "3/100.00" | bc
+ 1908  echo "3*200/100.00" | bc
+ 1909  nano randomsample.sh 
+ 1910  ./randomsample.sh 3 subset.tsv
+ 1911  nano randomsample.sh 
+ 1912  ./randomsample.sh 3 amazon_reviews_us_Books_v1_02.tsv 
+ 1913  nano randomsample.sh 
+ 1914  lc=`wc-l < amazon_reviews_us_Books_v1_02.tsv` 
+ 1915  lc=`wc -l < amazon_reviews_us_Books_v1_02.tsv`; 
+ 1916  echo $lc
+ 1917  ./randomsample.sh 
+ 1918  ./randomsample.sh 1
+ 1919  echo $(($RANDOM % 100))
+ 1920  echo $(($RANDOM % 101))
+ 1921  echo $(($RANDOM % 100001))
+ 1922  echo $(($RANDOM % 10000))
+ 1923  nano randomsample.sh 
+ 1924  nano
+ 1925  chmod +x randomsample2.sh 
+ 1926  ./randomsample2.sh 
+ 1927  ./randomsample2.sh 3 amazon_reviews_us_Books_v1_02.tsv 
+ 1928  ./randomsample2.sh 5 subset.tsv 
+ 1929  nano randomsample2.sh 
+ 1930  ./randomsample2.sh 5 subset.tsv 
+ 1931  nano randomsample2.sh 
+ 1932  ./randomsample2.sh 2 subset.tsv 
+ 1933  head -n 200 amazon_reviews_us_Books_v1_02.tsv > subset2.tsv
+ 1934  ./randomsample2.sh 2 subset2.tsv 
+ 1935  nano randomsample2.sh 
+ 1936  nano randomsample.sh 
+ 1937  ./randomsample.sh 2 subset2.tsv 
+ 1938  nano randomsample.sh 
+ 1939  ./randomsample.sh 2 subset2.tsv 
+ 1940  nano randomsample.sh 
+ 1941  exit
+ 1942  echo $(($RANDOM % 32767))
+ 1943  echo $(($RANDOM / 32767))
+ 1944  echo $(($RANDOM % 1))
+ 1945  echo $(($RANDOM % 2))
+ 1946  echo $(($RANDOM % 3))
+ 1947  ls
+ 1948  nano randomsample2.sh 
+ 1949  ./randomsample2.sh 2 subset2.tsv 
+ 1950  nano randomsample2.sh 
+ 1951  ./randomsample2.sh 2 subset2.tsv 
+ 1952  nano randomsample2.sh 
+ 1953  ./randomsample2.sh 2 subset2.tsv 
+ 1954  nano randomsample2.sh 
+ 1955  ./randomsample2.sh 2 subset2.tsv 
+ 1956  nano randomsample2.sh 
+ 1957  ./randomsample2.sh 2 subset2.tsv 
+ 1958  nano randomsample2.sh 
+ 1959  ./randomsample2.sh 2 blah
+ 1960  ls
+ 1961  -e a2.txt
+ 1962  test -f a2.txt
+ 1963  echo test -f a2.txt
+ 1964  echo `test -f a2.txt`
+ 1965  -f randomsample
+ 1966  -f randomsample.sh
+ 1967  test -f randomsample.sh
+ 1968  nano randomsample2.sh 
+ 1969  echo "1 -lt 0"
+ 1970  echo `1 -lt 0`
+ 1971  echo "1 < 0" | bc
+ 1972  echo "1 > 0" | bc
+ 1973  nano randomsample2.sh 
+ 1974  ./randomsample2.sh 2 subset2.tsv 
+ 1975  nano randomsample2.sh 
+ 1976  ./randomsample2.sh 2 subset2.tsv 
+ 1977  nano randomsample2.sh 
+ 1978  ./randomsample2.sh 2 subset2.tsv 
+ 1979  nano randomsample2.sh 
+ 1980  ./randomsample2.sh 2 subset3.tsv 
+ 1981  ./randomsample2.sh -1 subset3.tsv 
+ 1982  ./randomsample2.sh -1 subset2.tsv 
+ 1983  ./randomsample2.sh 0 subset2.tsv 
+ 1984  ./randomsample2.sh 2 subset3.tsv 
+ 1985  ./randomsample2.sh 2 subset2.tsv 
+ 1986  exit
+ 1987  nano
+ 1988  wc -l amazon_reviews_us_Books_v1_02.tsv
+ 1989  echo "0.01 * 3105521" | bc
+ 1990  chmod +x randomsample.sh
+ 1991  tail -n 100 amazon_reviews_us_Books_v1_02.tsv > subset1.tsv
+ 1992  tail -n 200 amazon_reviews_us_Books_v1_02.tsv > subset2.tsv
+ 1993  ./randomsample.sh 3
+ 1994  ./randomsample.sh 0 subset1.tsv
+ 1995  ./randomsample.sh 100 subset1.tsv
+ 1996  ./randomsample.sh 3 filethatdoesntexist.tsv
+ 1997  ./randomsample.sh 3 subset1.tsv
+ 1998  ./randomsample.sh 3 subset2.tsv
+ 1999  nano
+ 2000  nano randomsample.sh 
+ 2001  ./randomsample.sh 3 subset1.tsv
+ 2002  history > cmds.log

@@ -1,0 +1,204 @@
+T.K. Bui | CS 185C | Worksheet 9, due 11/23/2021
+======================================================================================================================
+
+Script started on 2021-11-24 06:37:52+00:00 [TERM="screen" TTY="/dev/pts/1" COLUMNS="189" LINES="51"]
+----------------------------------------------------------------------------------------------------------------------
+1) Write a shell script that samples a random x% of the lines in the input file. Your shell script's name is
+   "randomsample.sh".  It is called like this:
+      $ ./randomsample.sh x fileinput
+   where x is an integer, x > 0 and x < 100 (x range is [1..99] inclusive). Both x and fileinput are required
+   parameters, represented in your script as $1 and $2. If either of these parameters are missing the script exits.
+   The script will print to stdout (echo) a random x% sampling of all lines in the input file.
+
+bui@f6linuxA7:~$ nano
+
+----- SCRIPT: randomsample.sh -----
+#!/bin/bash
+
+if [ $# -lt 2 ]; # not enough args were passed, so exit
+then
+  echo "Too few arguments were passed. Please pass in a percentage number and a file name."
+elif [ $1 -lt 1 ] || [ $1 -gt 99 ]; # the percentage number passed (first argument) is not in [1, 99]
+then
+  echo "The first argument should be a number representing a percentage between 1 and 99, inclusive."
+elif [ -e "$2" ]; # there are 2 args and the file exists, so execute the rest of the script
+then
+
+  numRows=0; # keep count of the number of rows printed so far
+  lineCount=`wc -l < $2`; # line count of $2
+
+  # since $1 is the percentage of lines to print, totalRows is the number of rows we actually need to print
+  totalRows=$(echo "$1*$lineCount/100" | bc );
+  row=1; # use to know which number line in the file we're printing
+  # echo "num of lines to get: $totalRows"
+
+  # loop through the file and use a random number to decide whether to print the line or not
+  while read p; do
+
+    # echo "number of rows printed so far: $numRows" # show number of lines that we've printed so far
+
+    # print the line if the random number is 1
+    randNum=$(($RANDOM%2)) # returns either 0 or 1
+    # echo "random number calculated: $randNum"
+    if [ $randNum -gt 0 ]; then
+      # echo "printing row #$row"
+      ((numRows++)) # increment number of rows that we've printed out so far
+      echo "$p" # prints the line
+    fi
+
+    # exit if we printed the needed num or rows
+    if [ $numRows -ge $totalRows ]; then
+      # echo "Exiting, achieved desired num of rows (numRows = $numRows & totalRows = $totalRows)."
+      break
+    fi
+
+    ((row++))
+
+  done < $2
+else # the file does not exist
+  echo "The file $2 does not exist."
+fi
+-----------------------------------
+
+bui@f6linuxA7:~$ wc -l amazon_reviews_us_Books_v1_02.tsv
+3105521 amazon_reviews_us_Books_v1_02.tsv
+
+bui@f6linuxA7:~$ echo "0.01 * 3105521" | bc
+31055.21
+
+bui@f6linuxA7:~$ chmod +x randomsample.sh
+
+bui@f6linuxA7:~$ tail -n 100 amazon_reviews_us_Books_v1_02.tsv > subset1.tsv
+
+bui@f6linuxA7:~$ tail -n 200 amazon_reviews_us_Books_v1_02.tsv > subset2.tsv
+
+bui@f6linuxA7:~$ ./randomsample.sh 3
+Too few arguments were passed. Please pass in a percentage number and a file name.
+
+bui@f6linuxA7:~$ ./randomsample.sh 0 subset1.tsv
+The first argument should be a number representing a percentage between 1 and 99, inclusive.
+
+bui@f6linuxA7:~$ ./randomsample.sh 100 subset1.tsv
+The first argument should be a number representing a percentage between 1 and 99, inclusive.
+
+bui@f6linuxA7:~$ ./randomsample.sh 3 filethatdoesntexist.tsv
+The file filethatdoesntexist.tsv does not exist.
+
+bui@f6linuxA7:~$ ./randomsample.sh 3 subset1.tsv
+num of lines to get: 3
+number of rows printed so far: 0
+random number calculated: 1
+printing row #1
+US	53096008	RR7Z2U9R6RHY6	0316353957	53525621	Blue Highways: A Journey into America	Books	5	2	2	N	N	Journey across the lesser known byways of America	Mr. Moon's unforgetable journey to the off the beaten paths of America. He captures the soul of our nation as it use to be. Here are desciptions of the people that one rarely  hears or reads about. If you want to learn about what  makes this country great...read Blue Highways. It will   give you inspiration to journey to the off-beat roads of  America.	1995-10-23
+number of rows printed so far: 1
+random number calculated: 0
+number of rows printed so far: 1
+random number calculated: 1
+printing row #3
+US	52194881	R3H4NOKDONXLDS	0824815130	174665453	The Hikers Guide to O'Ahu (A Kolowalu Book)	Books	5	7	7	N	N	A must-have if you plan to hike on the island of Oahu.	Stuart Ball's book is an excellent resource for anyoneplanning to hike on Oahu.  In fact, it has been in mybackpack on most hikes I've been on.  Great info on how to get to the trailhead, the length and level of difficulty of the hike, and insights about what to see and expect  when you're on a particular trail.  The best Hawaii-based book I've read.	1995-10-23
+number of rows printed so far: 2
+random number calculated: 1
+printing row #4
+US	53096008	R351SC94GU71FE	0393307069	659543252	Post Captain (Aubrey/Maturin)	Books	5	0	1	N	N	Second in the Aubrey-Maturin series of Napoleonic War tales	If you want to get the flavor of O'Brian's tales of the  sea adventures of England's Capt. Aubrey and his close friend Dr, Steven Maturin this is the best book in the   series to stsrt from. Returning from a long campaign as a   Commander Jack &amp; Steven spend a long spell in England.   O'Brian introduces us to their future wives and his sights  and sounds of English country life will transport you back to  early 19th century England. A rousing tale that ends with  Jack becoming a Post Captain. No one captures the language   of the times like O'Brian and you will want to read all of the  16 volumes that make up this series.     The Aubrey-Maturin stories are the best in this genre.	1995-10-22
+Exiting, achieved desired num of rows (numRows = 3 & totalRows = 3).
+
+bui@f6linuxA7:~$ [Kbui@f6linuxA7:~$ ./randomsample.sh 3 subset2.tsv
+num of lines to get: 6
+number of rows printed so far: 0
+random number calculated: 1
+printing row #1
+US	53095283	R1EVGTPIEZ16WH	0312852487	820960971	Dragon Reborn (The Wheel of Time, Book 3)	Books	5	1	1	N	N	MUST READ	<br />The third book of Robert Jordan's Wheel of Time Series<BR>  is a MUST READ.  From the opening words to the the last second<BR>  it holds you.  This book is just a point in the continuing<BR>   adventure of Rand Al'Thor and his friends, but within it you will<BR>   learn a great deal about the Wheel of Time and all the Mystic power<BR>   it has.<BR>   THE BATTLE IS ONLY BEGINNING!!!	1996-01-02
+number of rows printed so far: 1
+random number calculated: 1
+printing row #2
+US	53095296	R2GGZ501ONKE2R	0441002463	970224718	Burn	Books	5	4	7	N	N	Artificial Viral Agents unleashed to turn Earth into Eden	I would be happy to answer questions about this novel or others that I've written, or questions on writing in general.  [...]       Best wishes,  Bill	1996-01-01
+number of rows printed so far: 2
+random number calculated: 1
+printing row #3
+US	52762840	R2WSV4GHZFQNVY	0195019199	101936467	A Pattern Language: Towns, Buildings, Construction (Center for Environmental Structure)	Books	4	3	4	N	N	Excellent.	The sections on designing houses are wonderful and should be of interest to anyone planning a home of their own (although the construction  methods suggested here are fairly impractical.) The town planning parts are thought-provoking but seem somewhat utopian	1995-12-31
+number of rows printed so far: 3
+random number calculated: 1
+printing row #4
+US	53095734	RNRTK8B7TR1QT	0226500616	907441434	Young Men and Fire: A True Story of the Mann Gulch Fire	Books	5	2	2	N	N	Exceptional, moving	This book skips back and forth between the author's investigation into a 1940's smokejumping disaster, and an account of the event itself.  The author stuggles through the same rugged terrain over which the fire pursued the somkejumpers, and helps us feel the nearly insurmountable difficulty of outrunning a fire uphill in the dry season. The story moves towards the inevitable conclusion with power and compassion.  I highly recommend it	1995-12-30
+number of rows printed so far: 4
+random number calculated: 1
+printing row #5
+US	53052478	R3C4OKZ895WG0G	1571010211	887869732	Resiliency: How to Bounce Back Faster, Stronger, Smarter	Books	5	4	4	N	N	This is a must read for the changing times that we live in.	The authors do an excellent job of describing the issues that face all individuals and organizations that must deal flex-ibly with the rapidly changing time that we live in.  Theynot only identify the signals of rapid change but deliver a number of excellent ways of dealing with the changes and the recovery that ensues.  I cannot reccomend this book highly enough.   Richard P. Varnes, Ph.D	1995-12-29
+number of rows printed so far: 5
+random number calculated: 1
+printing row #6
+US	53095734	R56IMELICTSRF	1569248761	410329857	All Aboard	Books	3	5	5	N	N	Decent but superficial	The framework of this book attempts to relate the railroad to  American life, but provides very few specific insights.  Changes such as standard time, commuting, etc. are minimally covered. As a general railroad history, it is superficial.  Essentially it tries to cover too much, and it is not tightly written.  A fast reader or one cursed with a good memory will see constant repitition of minor interesting points in several chapters, making the book feel padded.  I'd pass on this one	1995-12-29
+Exiting, achieved desired num of rows (numRows = 6 & totalRows = 6).
+
+bui@f6linuxA7:~$ ./randomsample.sh 3 subset2.tsv
+num of lines to get: 6
+number of rows printed so far: 0
+random number calculated: 0
+number of rows printed so far: 0
+random number calculated: 0
+number of rows printed so far: 0
+random number calculated: 1
+printing row #3
+US	52762840	R2WSV4GHZFQNVY	0195019199	101936467	A Pattern Language: Towns, Buildings, Construction (Center for Environmental Structure)	Books	4	3	4	N	N	Excellent.	The sections on designing houses are wonderful and should be of interest to anyone planning a home of their own (although the construction  methods suggested here are fairly impractical.) The town planning parts are thought-provoking but seem somewhat utopian	1995-12-31
+number of rows printed so far: 1
+random number calculated: 0
+number of rows printed so far: 1
+random number calculated: 0
+number of rows printed so far: 1
+random number calculated: 1
+printing row #6
+US	53095734	R56IMELICTSRF	1569248761	410329857	All Aboard	Books	3	5	5	N	N	Decent but superficial	The framework of this book attempts to relate the railroad to  American life, but provides very few specific insights.  Changes such as standard time, commuting, etc. are minimally covered. As a general railroad history, it is superficial.  Essentially it tries to cover too much, and it is not tightly written.  A fast reader or one cursed with a good memory will see constant repitition of minor interesting points in several chapters, making the book feel padded.  I'd pass on this one	1995-12-29
+number of rows printed so far: 2
+random number calculated: 0
+number of rows printed so far: 2
+random number calculated: 1
+printing row #8
+US	53079359	RTWSN09DVMFS0	0312952015	16928864	The Heat of Ramadan	Books	5	4	4	N	N	Excellent suspense w/real-life spy knowledge from Hartov	Steven Hartov combines his actual experience and in-depth research in the Israeli military to concoct a spell-binding chiller.  His true-to-life mid-east war details intensify the varied plot lines to a pitch. Not to be missed for fans of high test adventure and espionage in exotic locales	1995-12-28
+number of rows printed so far: 3
+random number calculated: 1
+printing row #9
+US	53095813	R1HISFPKEAP5NS	0195032535	118238569	Science and Creationism (Galaxy Book, Gb 721)	Books	5	3	3	N	N	Spans the spectrum between technical, informative, and humor	This collection of essays concerning the scientific method (as it relates to biogenesis, evolution, and Evolutionary Theory) and the religion called &quot;Creation Science&quot; is  perhaps the best out of nearly 100 similar books I have  read. The essays at the start of the book explain in good  detail why evolution is a fact, and why Evolutionary  Theory, which describes that fact, is not a fact--- a  distinction that few Creationists CHOOSE to understand.  One essay discusses why young-Earth Creationists believe  what they believe; another explains biogenesis (which is  seperate and distinct from evolution--- biogenesis covers  how life began, while evolution is the process of changes  among that life afterwards); two essays discuss the latests  &quot;monkey trials&quot; whereby Creationists attempted to bypass  the rules of science and used politics instead to force  their religion into public schools. All in all, an  EXCELLENT book.	1995-12-27
+number of rows printed so far: 4
+random number calculated: 1
+printing row #10
+US	53065059	R68N945SC8Y9Z	0374126453	31986107	Coming into the Country	Books	5	2	2	N	N	A lucid, lyrical account of America's last frontier.	John McPhee is a master at weaving many stories together into a coherent whole.  Here he uses these skills to paint a  portrait of the varied and often conflicting interests that  co-habit today's Alaska.  He shifts perspective, examining now the modern-day pioneer who seeks to escape the modern world, and  then the representatives of that same world, the government  agents and politicians who have their own agenda for America's largest state.  This book is wonderfully written in a lucid, literary prose.  McPhee puts many other writers of non-fiction, and many of our best literary writers, to shame	1995-12-26
+number of rows printed so far: 5
+random number calculated: 0
+number of rows printed so far: 5
+random number calculated: 1
+printing row #12
+US	53096493	R378HBRQAZ1W2G	0679750819	851830904	Breakthrough On Skis: How to Get Out of the Intermediate Rut	Books	5	0	0	N	N	The best book on skiing ever written.	Simply the best ski instruction book ever	1995-12-25
+Exiting, achieved desired num of rows (numRows = 6 & totalRows = 6).
+
+bui@f6linuxA7:~$ nano randomsample.sh
+
+bui@f6linuxA7:~$ ./randomsample.sh 3 subset2.tsv1.tsv
+US	52194881	R3H4NOKDONXLDS	0824815130	174665453	The Hikers Guide to O'Ahu (A Kolowalu Book)	Books	5	7	7	N	N	A must-have if you plan to hike on the island of Oahu.	Stuart Ball's book is an excellent resource for anyoneplanning to hike on Oahu.  In fact, it has been in mybackpack on most hikes I've been on.  Great info on how to get to the trailhead, the length and level of difficulty of the hike, and insights about what to see and expect  when you're on a particular trail.  The best Hawaii-based book I've read.	1995-10-23
+US	53096008	R2V0V2U292068L	0523423012	932328326	To Live and Die in L.A.	Books	5	2	3	N	N	Excellent L.A. cops story of drug enforcement	Better than the Movie an action filled story of LA undercover cops running a drug bust. Proably the best of Petievich's  books. His knowledge of law enforcement makes this a real  page turner.	1995-10-22
+US	53096008	R2WVO8MZVW9RWP	044651862X	58848637	The Celestine Prophecy: An Adventure	Books	2	0	0	N	N	An overhyped book and one of the worst written	Having been given this book as a present by my son who  claims he was inspired by the narative, I was very let down. For a book that is basically suppose to be for self   enlightenment why did the author go to this hokey story line.  He would have been better off writing it as a straight book  for enlightenment... That is if he could write!!!! If you want   to see what writing is all about read Umberto Eco's new   magnificent novel &quot;The Island Of The Day Before&quot;.    A guess to sell a best seller today you need to write to the  level of the masses.. A sad commentary on our times.	1995-10-22
+
+----------------------------------------------------------------------------------------------------------------------
+EXPLANATION: First, I create the shell script in nano. I removed the text generated from running nano in script since
+it's a lot of ugly text, but I show the script I wrote after the nano command in the screen capture. Basically, I
+do an if-elif-else statement, where the script checks if there are 2 arguments passed, if the number is between 1 and
+99, and if the file exists. If all are true, then I calculate the number of random rows to print out by using the
+line count of the passed in file and the percentage number that was passed in. I use a counter to keep track of how
+many lines I print out and when that counter reaches the same number of lines I calculated, then the while loop ends.
+In the while loop, I use $RANDOM to randomly get either 0 or 1. If 1, I'll print the current line and increment my
+counter, else I go to the next line. This is to prevent duplicates. I also include echo statements to show the cal-
+culated number of lines to get from the file, the random 0 or 1 that I calculate, the number of the row I'm printing,
+and then the actual row.
+When testing the script, I first test the error catching. Then I get subsets of the amazon file because just 1% of 
+the amazon file is 31,000 lines and it had already taken me a long time to test it on my own. Since the subset sizes 
+are 100 and 200 lines respectively, I show that the script correctly calculates that 3% of each subset would be 3 
+lines for the subset of 100 lines, or 6 lines for the subset of 200 lines. I ran the script on the subset of 200 
+lines twice since it coincidentally got 1 every time when deciding whether to print lines, and printed the first 6 
+lines. Finally, I edited the script to take away all of the extra print statements and ran it again on the subset of
+100 lines with the expectation to print a random 3% of the file, and it correctly prints 3 random lines from the subset. 
+
+======================================================================================================================
+bui@f6linuxA7:~$ history > cmds.log
+
+bui@f6linuxA7:~$ exit
+
+Script done on 2021-11-24 06:52:25+00:00 [COMMAND_EXIT_CODE="0"]
